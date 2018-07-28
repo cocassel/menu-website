@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Menu</title>
+</head>
+
+<body class="text-center">
+
+
+	<ng-container *ngIf="loggedIn==false">
+		<users-login (loggedIn) = "onLoggedInChange($event)"></users-login>
+	</ng-container>
+
+	<ng-container *ngIf="loggedIn==true">
+			<edit-users [loggedInEmployee] = "loggedInEmployee"></edit-users>
+	</ng-container>
+
+
+</body>
+</html>

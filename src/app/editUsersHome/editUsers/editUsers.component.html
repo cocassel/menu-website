@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>editUsers</title>
+</head>
+<body>
+
+<div id="menu">
+
+<div id="userInfo">
+	
+    <ng-container *ngIf="showForm==false">
+		
+		<label style="font-size: 180%;">User Information</label>
+		 
+		<table class="table" style="margin: 0px auto; width: 600px;">
+        
+			<tr bgcolor="#337ab7" style="font-weight: bold; color:white; font-size: 110%; height: 30px">
+				<td style="font-weight: bold; vertical-align: middle; text-align: center;">First Name</td>
+				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Last Name</td>
+				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Username</td>
+				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Can Edit Users</td>
+				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Delete a User</td>
+			</tr>	
+        
+			<ng-container *ngFor="let user of users">
+				
+				<tr>
+					<td style="vertical-align: middle; text-align: center;">{{user.first_name}}</td>
+					<td style="vertical-align: middle; text-align: center;">{{user.last_name}}</td>
+					<td style="vertical-align: middle; text-align: center;">{{user.username}}</td>
+					
+					<ng-container *ngIf="user.can_edit_users=='True'">
+						<td style="vertical-align: middle; text-align: center;">Yes</td>
+					</ng-container>
+					<ng-container *ngIf="user.can_edit_users=='False'">
+						<td style="vertical-align: middle; text-align: center;">No</td>
+					</ng-container>
+					<ng-container *ngIf="user.user_id!=loggedInEmployee">
+						<td style="vertical-align: middle; text-align: center;"><button (click)="onDelete(user.user_id)" type="button" class="btn btn-primary" >Delete this user</button></td>
+					</ng-container>
+					<ng-container *ngIf="user.user_id==loggedInEmployee">
+						<td style="vertical-align: middle; text-align: center;"></td>
+					</ng-container>
+				</tr>
+				
+			
+			</ng-container>
+                  
+		</table>
+		<br>
+		<form>
+		<button (click)="onBack1()" type="button" class="btn btn-primary">Go back</button>
+		<button (click)="onAddButton()" type="button" class="btn btn-primary">Add a User</button>
+		
+		</form>
+		
+  </ng-container>
+  
+  
+  
+  
+  
+  
+	<ng-container *ngIf="showForm==true">
+		<form id="addUser">
+			<label style="font-size: 180%; padding-bottom: 25px;">New User Information</label><br>
+			<div id="main">
+				<div id="left">
+					<div id=instructions><label>First Name:</label></div>
+					<div id=instructions><label>Last Name:</label></div>
+					<div id=instructions><label>Username:</label></div>
+					<div id=instructions style="padding-bottom:0;"><label>Password:</label></div>
+					
+				</div>
+
+				<div id=fields> 
+					<div id=field><input type="text" #firstname><br></div>
+					<div id=field><input type="text" #lastname><br></div>
+					<div id=field><input type="text" #username><br></div>
+					<div id=field><input type="text" #password id="passwordBox" autocomplete="off"></div>
+					
+				</div>
+			</div>
+			
+			<div id="canEdit">
+				<label style="padding-right: 10px; padding-left: 5px;">Can edit user information:</label>
+				<select class="form-control"  #selectedOption >
+						<option value="false"> No </option>
+						<option value="true"> Yes </option>
+					</select><br>
+					
+				<br>
+			</div>
+
+			<div id="buttons">
+				<button (click)="onBack1()" type="button" class="btn btn-primary">Home</button>
+				<button (click)="onBack2()" type="button" class="btn btn-primary">Go back</button>
+				<button (click)="onAddUser(firstname.value, lastname.value, username.value, password.value, selectedOption.value )"type="button" class="btn btn-primary">Add User</button>
+			
+			</div>
+			
+			<ng-container *ngIf="allFieldsFilled==false">
+				
+					<p>Please fill out all the fields</p>
+				
+			</ng-container>
+			<ng-container *ngIf="userAdded==true">
+				
+					<p id="success">{{userAddedName}} has been added as a user!</p>
+				
+			</ng-container>
+			
+			
+		</form> 
+	</ng-container>
+        
+</div>
+</div>
+
+</body>
+</html>
