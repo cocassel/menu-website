@@ -64,7 +64,7 @@ export class databaseService {
         let options = new RequestOptions({ headers: headers});
  
  
-         return this._http.get('http://' + this.host + ':5000/flaggedDishes', options)
+         return this._http.get('https://' + this.host + ':5000/flaggedDishes', options)
              .map((response: Response) => response.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error' ));
      }
