@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class databaseService {
     
-    host: string = menu-flask-app.herokuapp.com;
+    host: string = "menu-flask-app.herokuapp.com";
 
     constructor(private _http: Http) {}
 
