@@ -18,7 +18,7 @@ export class databaseService {
        let options = new RequestOptions({ headers: headers});
 
 
-        return this._http.get('https://' + this.host + ':5000/users', options)
+        return this._http.get('https://' + this.host + '/users', options)
             .map((response: Response) => response.json())
         .catch((error:any) => Observable.throw(error.json().error || 'Server error' ));
     }
@@ -30,7 +30,7 @@ export class databaseService {
         let options = new RequestOptions({ headers: headers});
  
  
-         return this._http.get('https://' + this.host + ':5000/dishes', options)
+         return this._http.get('https://' + this.host + '/dishes', options)
              .map((response: Response) => response.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error' ));
      }
@@ -42,7 +42,7 @@ export class databaseService {
         let options = new RequestOptions({ headers: headers});
  
  
-         return this._http.get('https://' + this.host + ':5000/types', options)
+         return this._http.get('https://' + this.host + '/types', options)
              .map((response: Response) => response.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error' ));
      }
@@ -53,7 +53,7 @@ export class databaseService {
         let options = new RequestOptions({ headers: headers});
  
  
-         return this._http.get('https://' + this.host + ':5000/flags', options)
+         return this._http.get('https://' + this.host + '/flags', options)
              .map((response: Response) => response.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error' ));
      }
@@ -64,7 +64,7 @@ export class databaseService {
         let options = new RequestOptions({ headers: headers});
  
  
-         return this._http.get('https://' + this.host + ':5000/flaggedDishes', options)
+         return this._http.get('https://' + this.host + '/flaggedDishes', options)
              .map((response: Response) => response.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error' ));
      }
@@ -76,7 +76,7 @@ export class databaseService {
 		  let headers = new Headers({ 'Content-Type': 'application/json' });
 		  let options = new RequestOptions({ headers: headers });
 		  
-		  return this._http.post('https://' + this.host + ':5000/deleteUser', userToDelete, options)
+		  return this._http.post('https://' + this.host + '/deleteUser', userToDelete, options)
 				.map((res: Response) => res.json())
 				.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 			
@@ -90,7 +90,7 @@ export class databaseService {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers }); 
 		
-		return this._http.post('https://' + this.host + ':5000/addUser', userToAdd, options)
+		return this._http.post('https://' + this.host + '/addUser', userToAdd, options)
 				.map((res: Response) => res.json())
 				.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 		 
