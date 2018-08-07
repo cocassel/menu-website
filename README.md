@@ -1,3 +1,3 @@
 # menu-website
 
-Live demo at: https://cocassel.github.io/menu-website/
+[Live Demo](https://cocassel.github.io/menu-website/)
