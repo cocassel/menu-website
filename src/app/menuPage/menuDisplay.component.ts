@@ -46,7 +46,7 @@ export class menuDisplayComponent {
             this.temp = true;
             for(let flag of this.flags){
                 this.foundIt = false;
-                if(flag.selected == false){ //automatically satisfied if the dietary restrictions isn't checked
+                if(flag.selected == false){ //dish flag pair automatically satisfied if the dietary restriction isn't checked
                     this.satisfied.push({
                         flag_id: flag.flag_id,
                         satisfies_flag: true
