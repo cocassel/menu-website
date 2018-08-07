@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class editMenuHomeComponent {
   title = 'editMenuHomeComponent';
 
-  loggedIn: boolean=false;
+  loggedIn: boolean = false;
 
 
 onLoggedInChange(loggedIn: boolean): void {
-        this.loggedIn=loggedIn;
+        this.loggedIn = loggedIn;
     }
 }

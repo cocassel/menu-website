@@ -7,15 +7,13 @@
 
 <body class="text-center">
 
-
 	<ng-container *ngIf="loggedIn==false">
 		<users-login (loggedIn) = "onLoggedInChange($event)"></users-login>
 	</ng-container>
 
 	<ng-container *ngIf="loggedIn==true">
-			<edit-users [loggedInEmployee] = "loggedInEmployee"></edit-users>
+			<edit-users [loggedInUser] = "loggedInUser"></edit-users>
 	</ng-container>
-
 
 </body>
 </html>

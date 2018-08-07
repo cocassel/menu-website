@@ -6,13 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./editUsersHome.component.css']
 })
 export class editUsersHomeComponent {
-  loggedIn: boolean=false;
-  loggedInEmployee: number=0;
+  loggedIn: boolean = false;
+  loggedInUser: number = 0;
   
   onLoggedInChange(eventToEmit: any): void {
-          this.loggedIn=eventToEmit[0];
-          this.loggedInEmployee=eventToEmit[1];
-          
+          this.loggedIn = eventToEmit[0];
+          this.loggedInUser = eventToEmit[1];
       }
   }
   

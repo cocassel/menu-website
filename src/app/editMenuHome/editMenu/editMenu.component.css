@@ -4,7 +4,6 @@ body {
 	background-color: aliceblue;
 	min-height: 100vh;
 	}
-
 header {
     text-align: center;
     font-family: 'AvenirLTStd-Medium', sans-serif, Arial;
@@ -13,48 +12,19 @@ header {
     display: inline-block;
     width: 100%;
 }
-
-
 ul{
 	display: inline-block;
 	text-align: center;
 	vertical-align: center;
-
 }
-
 button{
 	display: inline-block;
 }
-
-#backButton{
-
-	padding-top: 20px;
-	padding-bottom: 20px;
-	display: block;
-}
-
-#menuBanner{
-	
-	display: inline-block;
-	text-align: center;
-	width: 600px;
-	height: 100%;
-}
-
-#menu{
-	display: inline-block;
-	text-align: center;
-	padding: 35px;
-}
-
-
 label{
 padding-bottom: 20px;
 color: white ;
 font-size: 120%;
 }
-
-
 form{
 	display:inline-block;
 	padding: 30px;
@@ -64,9 +34,8 @@ form{
 	border-color: black;
 	background: #4cb3b3;
 	width: 450px;
-	height: 610px;
+	height: 370px;
 }
-
 li{
 	padding: 5px;
 	vertical-align: center;
@@ -74,25 +43,34 @@ li{
 .nav-pills a{
 	background-color:#e9e9e2 ;
 	color:#2e2e2e;
-	
-	
 }
-
 .nav-pills a:hover{
 	background-color: #CACAB9 ;
 	color:#2e2e2e;
 }
 .nav-pills{
-
 	width: 230px;
-
 }
-
 .nav>li>a {
     padding-top: 15px;
 	padding-bottom: 15px;
 	vertical-align: center;
 }
-
+#backButton{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: block;
+}
+#menuBanner{
+	display: inline-block;
+	text-align: center;
+	width: 600px;
+	height: 100%;
+}
+#menu{
+	display: inline-block;
+	text-align: center;
+	padding-top: 150px;
+}
 
 

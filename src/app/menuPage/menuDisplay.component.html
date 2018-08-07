@@ -5,8 +5,6 @@
     <title>MenuDisplay</title>
 </head>
 <body>
-
-
 	<div id=menu class="text-center">
 	<div id=menuBanner class="text-center">
 	
@@ -19,7 +17,6 @@
 				<div id="flagName">{{flag.flag_name}}:</div>
 			
 				<input type="checkbox" [checked]="flag.selected" (change)="flag.selected = !flag.selected" (change)="boxChecked()"/>
-
 				
 			</div>
 		</ng-container>
@@ -39,12 +36,13 @@
 		<br> <Br>
 	</ng-container>
 
-	
-
 	<ng-container *ngIf="displayDetails==true">
-			
 	</ng-container>
 
+	<div id="buttons">	
+		<button (click)="onBack()" type="button" class="btn btn-primary">Go back</button>
+		<br><br>
+	</div>
 
 	</div>
 	</div>

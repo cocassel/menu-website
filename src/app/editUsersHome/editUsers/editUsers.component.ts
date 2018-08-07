@@ -10,12 +10,11 @@ import { Router } from '@angular/router';
 })
 export class editUsersComponent {
 
-		users: any[]=[];
-		showForm: boolean=false;
-		allFieldsFilled: boolean=true;
-		userAdded: boolean=false;
-		userAddedName="";
-		test="";
+		users: any[] = [];
+		showForm: boolean = false;
+		allFieldsFilled: boolean = true;
+		userAdded: boolean = false;
+		userAddedName = "" ;
 		
 		constructor(private _databaseService: databaseService, private router: Router) { 
 
@@ -24,11 +23,11 @@ export class editUsersComponent {
 		}
 		
 		@Input()
-		loggedInEmployee=0;
+		loggedInUser = 0;
 		
 		
-		onDelete(employeeNumber: string){
-			this._databaseService.deleteUser(employeeNumber)
+		onDelete(userNumber: string){
+			this._databaseService.deleteUser(userNumber)
             .subscribe(res => { 
 				this._databaseService.getUsers()
 					.subscribe(res  =>  {this.users = res} );}
@@ -38,34 +37,34 @@ export class editUsersComponent {
 		}
 		
 		onAddUser(firstname: string, lastname:string, username:string, password:string, selectedOption: string ){ 
-			this.userAddedName="";
-			this.userAdded=false;
-			if(firstname=="" || lastname=="" || username=="" || password=="")
-				this.allFieldsFilled=false;
+			this.userAddedName = "";
+			this.userAdded = false;
+			if(firstname == "" || lastname == "" || username == "" || password == "")
+				this.allFieldsFilled = false;
 			else
-				this.allFieldsFilled=true;
-			if(this.allFieldsFilled==true)
+				this.allFieldsFilled = true;
+			if(this.allFieldsFilled == true)
 				this._databaseService.addUser(firstname, lastname, username, password, selectedOption)
 				.subscribe(res => { 
-				this.userAdded=true;
-				this.userAddedName=firstname + " " + lastname;
+				this.userAdded = true;
+				this.userAddedName = firstname + " " + lastname;
 				this._databaseService.getUsers()
 					.subscribe(res  =>  {this.users = res} );}
 				);
-			console.log(this.test);
 		}
-		
 		
 		onAddButton(){
-			this.showForm=true;
+			this.showForm = true;
 		}
+
 		onBack1(){
 			this.router.navigateByUrl('#');
 		}
+		
 		onBack2(){
-			this.showForm=false;
-			this.allFieldsFilled=true;
-			this.userAdded=false;
-			this.userAddedName="";
+			this.showForm = false;
+			this.allFieldsFilled = true;
+			this.userAdded = false;
+			this.userAddedName = "";
 		}
 }

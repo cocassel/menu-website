@@ -37,10 +37,10 @@
 					<ng-container *ngIf="user.can_edit_users=='False'">
 						<td style="vertical-align: middle; text-align: center;">No</td>
 					</ng-container>
-					<ng-container *ngIf="user.user_id!=loggedInEmployee">
+					<ng-container *ngIf="user.user_id!=loggedInUser">
 						<td style="vertical-align: middle; text-align: center;"><button (click)="onDelete(user.user_id)" type="button" class="btn btn-primary" >Delete this user</button></td>
 					</ng-container>
-					<ng-container *ngIf="user.user_id==loggedInEmployee">
+					<ng-container *ngIf="user.user_id==loggedInUser">
 						<td style="vertical-align: middle; text-align: center;"></td>
 					</ng-container>
 				</tr>
@@ -53,14 +53,9 @@
 		<form>
 		<button (click)="onBack1()" type="button" class="btn btn-primary">Go back</button>
 		<button (click)="onAddButton()" type="button" class="btn btn-primary">Add a User</button>
-		
 		</form>
 		
-  </ng-container>
-  
-  
-  
-  
+  	</ng-container>
   
   
 	<ng-container *ngIf="showForm==true">
