@@ -6,8 +6,6 @@
 </head>
 <body>
 
-<div id="menu">
-
 <div id="userInfo">
 	
     <ng-container *ngIf="showForm==false">
@@ -44,7 +42,6 @@
 						<td style="vertical-align: middle; text-align: center;"></td>
 					</ng-container>
 				</tr>
-				
 			
 			</ng-container>
                   
@@ -60,7 +57,7 @@
   
 	<ng-container *ngIf="showForm==true">
 		<form id="addUser">
-			<label style="font-size: 180%; padding-bottom: 25px;">New User Information</label><br>
+			<label style="font-size: 180%; padding-bottom: 25px;">Add a new user</label><br>
 			<div id="main">
 				<div id="left">
 					<div id=instructions><label>First Name:</label></div>
@@ -75,17 +72,15 @@
 					<div id=field><input type="text" #lastname><br></div>
 					<div id=field><input type="text" #username><br></div>
 					<div id=field><input type="text" #password id="passwordBox" autocomplete="off"></div>
-					
 				</div>
 			</div>
 			
 			<div id="canEdit">
-				<label style="padding-right: 10px; padding-left: 5px;">Can edit user information:</label>
+				<label style="padding-right: 10px; padding-left: 5px;">Can edit user info:</label>
 				<select class="form-control"  #selectedOption >
 						<option value="false"> No </option>
 						<option value="true"> Yes </option>
-					</select><br>
-					
+					</select><br>	
 				<br>
 			</div>
 
@@ -93,7 +88,6 @@
 				<button (click)="onBack1()" type="button" class="btn btn-primary">Home</button>
 				<button (click)="onBack2()" type="button" class="btn btn-primary">Go back</button>
 				<button (click)="onAddUser(firstname.value, lastname.value, username.value, password.value, selectedOption.value )"type="button" class="btn btn-primary">Add User</button>
-			
 			</div>
 			
 			<ng-container *ngIf="allFieldsFilled==false">
@@ -107,11 +101,9 @@
 				
 			</ng-container>
 			
-			
 		</form> 
 	</ng-container>
         
-</div>
 </div>
 
 </body>

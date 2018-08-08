@@ -3,7 +3,7 @@ body {
 	text-align: center;
 	background-color: aliceblue;
 	min-height: 100vh;
-	}
+}
 header {
     text-align: center;
     font-family: 'AvenirLTStd-Medium', sans-serif, Arial;
@@ -21,9 +21,9 @@ button{
 	display: inline-block;
 }
 label{
-padding-bottom: 20px;
-color: white ;
-font-size: 120%;
+	padding-bottom: 20px;
+	color: white ;
+	font-size: 120%;
 }
 form{
 	display:inline-block;
