@@ -2,9 +2,9 @@
   
 
   
-[Click here to see a live demo!](https://cocassel.github.io/menu-website/)    
+**[Click here to see a live demo!](https://cocassel.github.io/menu-website/)**    
     
-**Please note that the Heroku server that hosts the REST API takes about 10 seconds to wake up from "sleeping"**
+***Please note that the Heroku server that hosts the REST API takes about 10 seconds to wake up from "sleeping"***
   
   
 Angular web application hosted on GitHub Pages  
