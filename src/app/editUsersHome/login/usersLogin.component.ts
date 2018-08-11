@@ -11,7 +11,7 @@ export class usersLoginComponent {
 	
 	loginCorrect = false;
 	loginFailed = false;
-	users: any[] = [];
+	authentication: any[] = [];
 	loggedInUser: number = 0;
 	eventToEmit: any[] = [];
 
@@ -19,31 +19,27 @@ export class usersLoginComponent {
     loggedIn: EventEmitter<any> = new EventEmitter<any>();	
     
 
-    constructor(private _databaseService: databaseService, private router: Router) { 
-
-	this._databaseService.getUsers()
-            .subscribe(res  =>  {this.users = res} );
-    }
+	constructor(private _databaseService: databaseService, private router: Router) { }
 
  	onLogin(username: string, password: string){
+
 		this.eventToEmit = [];
- 		for (let key of this.users){
-			
-			if(key.username == username){
-				if(key.password == password && key.can_edit_users == 'True'){
-					this.loginCorrect = true;
-					this.loggedInUser=key.user_id;
-					
-				}
-			}
- 		}
- 		if (this.loginCorrect == false){
-			this.loginFailed = true;
- 		}
- 		this.eventToEmit[0] = this.loginCorrect;
-		this.eventToEmit[1] = this.loggedInUser;
- 		this.loggedIn.emit(this.eventToEmit);
-	 }
+
+		this._databaseService.authenticateUser(username, password)
+				.subscribe(res  =>  {this.authentication = res;
+				
+					if(this.authentication["user"]=="authenticated" && this.authentication["id"]!="invalid"){
+						this.loginCorrect=true;
+						this.loggedInUser=this.authentication["id"];
+					}
+					else {
+						this.loginFailed=true;
+					}
+					this.eventToEmit[0]=this.loginCorrect;
+					this.eventToEmit[1]=this.loggedInUser;
+					this.loggedIn.emit(this.eventToEmit);
+				} );
+	}
 	 
 	onBack(){
 		this.router.navigateByUrl('#');

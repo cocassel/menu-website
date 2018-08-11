@@ -11,30 +11,25 @@ export class menuLoginComponent {
 	
 	loginCorrect = false;
 	loginFailed = false;
-	users: any[] = [];
+	authentication: any[]=[];
 
 	@Output()
     loggedIn: EventEmitter<boolean> = new EventEmitter<boolean>();	
 
-    constructor(private _databaseService: databaseService, private router: Router) { 
-
-	this._databaseService.getUsers()
-            .subscribe(res  =>  {this.users = res} );
-    }
+    constructor(private _databaseService: databaseService, private router: Router) { }
 
  	onLogin(username: string, password: string){
- 		for (let key of this.users){
-			
-			if(key.username == username){
-				if(key.password == password){
-					this.loginCorrect = true;
-				}
+
+		this._databaseService.authenticateUser(username, password)
+		.subscribe(res  =>  {this.authentication = res;
+			if(this.authentication["user"] == "authenticated"){
+				this.loginCorrect=true;
 			}
- 		}
- 		if (this.loginCorrect == false){
-			this.loginFailed = true;
- 		}
- 		this.loggedIn.emit(this.loginCorrect);
+			 else {
+				this.loginFailed=true;
+			 }
+			 this.loggedIn.emit(this.loginCorrect);
+		} );
 	}
 
 	onBack(){

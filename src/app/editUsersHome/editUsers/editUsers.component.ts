@@ -18,8 +18,9 @@ export class editUsersComponent {
 		
 		constructor(private _databaseService: databaseService, private router: Router) { 
 
-		this._databaseService.getUsers()
-				.subscribe(res  =>  {this.users = res} );
+			this._databaseService.getUsers()
+					.subscribe(res  =>  {this.users = res} );
+					
 		}
 		
 		@Input()
@@ -32,8 +33,6 @@ export class editUsersComponent {
 				this._databaseService.getUsers()
 					.subscribe(res  =>  {this.users = res} );}
             );
-			
-	
 		}
 		
 		onAddUser(firstname: string, lastname:string, username:string, password:string, selectedOption: string ){ 
