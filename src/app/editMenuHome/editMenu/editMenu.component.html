@@ -9,14 +9,6 @@
 
 <div id=menuBanner class="text-center">
 
-  <ng-container *ngIf="loggedIn==false">
-        <menu-login (loggedIn) = "onLoggedInChange($event)"></menu-login>
-  </ng-container>
-    
-  <ng-container *ngIf="loggedIn==true">
-        <edit-menu></edit-menu>
-    </ng-container>
-      
   <ng-container *ngIf="editOption=='unselected'">
        
     <form>
