@@ -55,12 +55,8 @@ export class editUsersComponent {
 		onAddButton(){
 			this.showForm = true;
 		}
-
-		onBack1(){
-			this.router.navigateByUrl('#');
-		}
 		
-		onBack2(){
+		onBack(){
 			this.showForm = false;
 			this.allFieldsFilled = true;
 			this.userAdded = false;

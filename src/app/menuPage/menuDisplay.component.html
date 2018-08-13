@@ -5,7 +5,13 @@
     <title>MenuDisplay</title>
 </head>
 <body>
-	<div id=menu class="text-center">
+	
+	<ul class="nav nav-tabs">	
+		<li class="active"><a routerLink="/menu">Menu</a></li>
+		<li><a routerLink="/edit-menu">Edit Menu</a></li>
+		<li><a routerLink="/edit-users">Edit Users</a></li>
+	</ul>
+
 	<div id=menuBanner class="text-center">
 	
 	<ng-container *ngIf="displayDetails==false">
@@ -39,12 +45,6 @@
 	<ng-container *ngIf="displayDetails==true">
 	</ng-container>
 
-	<div id="buttons">	
-		<button (click)="onBack()" type="button" class="btn btn-primary">Go back</button>
-		<br><br>
-	</div>
-
-	</div>
 	</div>
 </body>
 </html>

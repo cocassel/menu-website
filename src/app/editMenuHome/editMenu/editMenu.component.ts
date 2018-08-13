@@ -8,10 +8,15 @@ import { Router } from '@angular/router';
 })
 export class editMenuComponent {
   title = 'editMenu';
+  editOption: string = 'unselected';
 
   constructor(private router: Router) { }
 
+  onSelection(selection){
+		this.editOption = selection;
+  }
+  
   onBack(){
-		this.router.navigateByUrl('/#');
+    this.editOption='unselected';
 	}
 }

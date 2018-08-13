@@ -10,16 +10,16 @@
 	
     <ng-container *ngIf="showForm==false">
 		
-		<label style="font-size: 180%;">User Information</label>
+		<label style="font-size: 180%; padding-bottom: 15px;">User Information</label>
 		 
-		<table class="table" style="margin: 0px auto; width: 600px;">
+		<table class="users" style="width: 580px; border-radius: 25px;">
         
-			<tr bgcolor="#337ab7" style="font-weight: bold; color:white; font-size: 110%; height: 30px">
-				<td style="font-weight: bold; vertical-align: middle; text-align: center;">First Name</td>
-				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Last Name</td>
-				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Username</td>
-				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Can Edit Users</td>
-				<td style="font-weight: bold; vertical-align: middle; text-align: center;">Delete a User</td>
+			<tr bgcolor="gray" style="font-weight: bold; vertical-align: middle; text-align: center; color:white; font-size: 110%; height: 30px;">
+				<td style="border-top-left-radius: 21px;">First Name</td>
+				<td>Last Name</td>
+				<td>Username</td>
+				<td>Admin User</td>
+				<td style="border-top-right-radius: 21px;">Delete a User</td>
 			</tr>	
         
 			<ng-container *ngFor="let user of users">
@@ -48,7 +48,6 @@
 		</table>
 		<br>
 		<form>
-		<button (click)="onBack1()" type="button" class="btn btn-primary">Go back</button>
 		<button (click)="onAddButton()" type="button" class="btn btn-primary">Add a User</button>
 		</form>
 		
@@ -85,8 +84,7 @@
 			</div>
 
 			<div id="buttons">
-				<button (click)="onBack1()" type="button" class="btn btn-primary">Home</button>
-				<button (click)="onBack2()" type="button" class="btn btn-primary">Go back</button>
+				<button (click)="onBack()" type="button" class="btn btn-primary">Go back</button>
 				<button (click)="onAddUser(firstname.value, lastname.value, username.value, password.value, selectedOption.value )"type="button" class="btn btn-primary">Add User</button>
 			</div>
 			

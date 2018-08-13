@@ -7,22 +7,72 @@
 
 <body class="text-center">
 
-<div id=menu class="text-center">
 <div id=menuBanner class="text-center">
 
-<form>
- <label> What would you like to edit?</label><br>
-  <ul class="nav nav-pills nav-stacked">
-    <li><a>Dish Types</a></li>
-    <li><a>Menu Dishes</a></li>
-    <li><a>Dietary Information</a></li>
-  </ul>
-  <div id=backButton>
-      <button (click)= "onBack()" type = "button" class = "btn btn-primary">Go back</button>
-  </div>
-</form>
+  <ng-container *ngIf="loggedIn==false">
+        <menu-login (loggedIn) = "onLoggedInChange($event)"></menu-login>
+  </ng-container>
+    
+  <ng-container *ngIf="loggedIn==true">
+        <edit-menu></edit-menu>
+    </ng-container>
+      
+  <ng-container *ngIf="editOption=='unselected'">
+       
+    <form>
+      <label> What would you like to do?</label><br>
 
-</div>
+      <button (click)="onSelection('addDish')" type="button" class="btn btn-primary">Add a dish to the menu</button><br>
+      <button (click)="onSelection('addCategory')" type="button" class="btn btn-primary">Add a dish category</button><br>
+      <button (click)="onSelection('addFilter')" type="button" class="btn btn-primary">Add a dietary filter</button><br>
+      <button (click)="onSelection('deleteDish')" type="button" class="btn btn-primary">Delete a dish from the menu</button><br>
+      <button (click)="onSelection('deleteCategory')" type="button" class="btn btn-primary">Delete a dish category</button><br>
+      <button (click)="onSelection('deleteFilter')" type="button" class="btn btn-primary">Delete a dietary filter</button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="editOption=='addDish'">
+      <form>
+          <label> Add a menu dish (eg. Hamburger)</label><br>
+          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
+      </form>
+  </ng-container>
+
+  <ng-container *ngIf="editOption=='addCategory'">
+      <form>
+          <label> Add a dish category (eg. Appetizers)</label><br>
+          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton"> Go back</button>
+      </form>
+  </ng-container>
+
+  <ng-container *ngIf="editOption=='addFilter'">
+      <form>
+          <label> Add a dietary filter (eg. Vegetarian)</label><br>
+          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
+      </form>
+  </ng-container>
+
+  <ng-container *ngIf="editOption=='deleteDish'">
+      <form>
+          <label> Delete a menu dish</label><br>
+          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
+      </form>
+  </ng-container>
+
+  <ng-container *ngIf="editOption=='deleteCategory'">
+      <form>
+          <label> Delete a dish category </label><br>
+          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
+      </form>
+  </ng-container>
+
+  <ng-container *ngIf="editOption=='deleteFilter'">
+      <form>
+          <label> Delete a dietary filter </label><br>
+          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
+      </form>
+  </ng-container>
+
 </div>
 
 </body>

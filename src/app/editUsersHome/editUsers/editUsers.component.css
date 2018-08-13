@@ -24,7 +24,7 @@ label{
 #userInfo{
     display:inline-block;
     padding: 30px;
-    margin: 100px;
+    margin: 50px;
     border-style: solid;
     border-width: 10px;
     border-radius: 25px;
@@ -36,15 +36,20 @@ li{
     padding: 5px;
 }
 table{
+    border-collapse: inherit;
     background-color: #e9e9e2;
     border-style: solid ;
-    border-width: 2px;
+    border-width: 3px;
     border-color: #2e2e2e;
+    box-shadow: 0 0 0 1px 
 }
-td{
+.users td{
+    border-collapse: inherit;
     height: 51px;
+    padding: 0;
     vertical-align: middle;
     text-align: center;
+    border: none;
 }
 input{
     width: 170px;

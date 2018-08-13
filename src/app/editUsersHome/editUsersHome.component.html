@@ -7,6 +7,12 @@
 
 <body class="text-center">
 
+	<ul class="nav nav-tabs">	
+		<li><a routerLink="/menu">Menu</a></li>
+		<li><a routerLink="/edit-menu">Edit Menu</a></li>
+		<li class="active"><a routerLink="/edit-users">Edit Users</a></li>
+	</ul>	
+			
 	<ng-container *ngIf="loggedIn==false">
 		<users-login (loggedIn) = "onLoggedInChange($event)"></users-login>
 	</ng-container>

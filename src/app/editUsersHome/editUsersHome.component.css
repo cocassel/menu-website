@@ -4,19 +4,6 @@ body {
 	background-color: aliceblue;
 	min-height: 100vh;
 }
-header {
-    text-align: center;
-    font-family: 'AvenirLTStd-Medium', sans-serif, Arial;
-    background-color: blue;
-    vertical-align: middle;
-    display: inline-block;
-    width: 100%;
-}
-ul{
-	display: inline-block;
-	text-align: center;
-	vertical-align: center;
-}
 button{
 	width:250px;
 }
@@ -47,28 +34,42 @@ form{
 	width: 450px;
 	height: 600px;
 }
-li{
+.nav-pills > li{
 	padding: 5px;
 	vertical-align: center;
 }
 .nav-pills a{
 	background-color:#e9e9e2 ;
 	color:#2e2e2e;
-	
 }
 .nav-pills a:hover{
 	background-color: #CACAB9 ;
 	color:#2e2e2e;
 }
 .nav-pills{
-
 	width: 230px;
-
+}
+ul{
+	background: #2e2e2e;
+}
+.nav-tabs > li.active > a{
+	background-color: aliceblue;
+	color:#2e2e2e;
+}
+.nav-tabs > li.active > a:hover{
+	background-color: aliceblue ;
+	color:#2e2e2e;
+}
+.nav-tabs > li > a:hover{
+	background-color: #CACAB9 ;
+	color:#2e2e2e;
 }
 .nav>li>a {
-    padding-top: 15px;
-	padding-bottom: 15px;
+    padding-top: 10px;
+	padding-bottom: 10px;
 	vertical-align: center;
+	background-color:#e9e9e2 ;
+	color:#2e2e2e;
 }
 
 
