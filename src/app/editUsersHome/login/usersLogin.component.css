@@ -3,6 +3,7 @@
 	text-align: center;
 	background-color: aliceblue;
 	min-height: 100vh;
+	min-width: 100vw;
 }
 form{
 	display:inline-block;
@@ -58,7 +59,7 @@ li{
 	padding: 10px;
 }
 #login{
-	padding: 160px;
+	padding: 140px;
 }
 #passwordBox{
 	-webkit-text-security: disc; 

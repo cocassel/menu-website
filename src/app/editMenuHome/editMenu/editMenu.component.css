@@ -3,6 +3,7 @@ body {
 	text-align: center;
 	background-color: aliceblue;
 	min-height: 100vh;
+	min-width: 100vw;
 }
 ul{
 	display: inline-block;
