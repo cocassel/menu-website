@@ -87,10 +87,11 @@ select{
 	padding: 5px;
 }
 #field{
-    padding: 5px;
+    padding: 7px;
 }
 #buttons{
     display: block;
+
 }
 #deleteButton.btn.btn-primary{
    background-color: rgb(239, 10, 10);
@@ -112,6 +113,7 @@ button{
 #instructions{
     display: block;
     text-align: left;
+    height: 40px;
 }
 #canEdit{
     display: block;
