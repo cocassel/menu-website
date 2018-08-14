@@ -97,6 +97,9 @@ select{
    border-color: rgb(239, 10, 10);
    color: white;
 }
+button{
+    color:white;
+}
 #deleteButtonDisabled{
     background-color:rgba(156, 139, 139, 0.651);
     border-color: rgba(156, 139, 139, 0.651);
