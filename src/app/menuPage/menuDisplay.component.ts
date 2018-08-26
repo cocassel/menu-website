@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class menuDisplayComponent {
 	
-	displayDetails: boolean = false;
 	dishes: any[] = [];
     types: any[] = [];
     flags: any[] = [];

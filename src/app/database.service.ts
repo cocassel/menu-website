@@ -108,5 +108,54 @@ export class databaseService {
 		 
     }
 
+    deleteDish(dishNumber: string){
 
+        const dishToDelete= JSON.stringify({ "deleteDish": dishNumber });
+        
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        
+        return this._http.post('https://' + this.host + '/deleteDish', dishToDelete, options)
+              .map((res: Response) => res.json())
+              .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    addFlag(flagName: string){
+		
+		let flagToAdd={"flag_name": flagName};
+
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers }); 
+		
+		return this._http.post('https://' + this.host + '/addFlag', flagToAdd, options)
+				.map((res: Response) => res.json())
+				.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+		 
+    }
+
+    deleteFlag(flagNumber: string){
+
+        const flagToDelete= JSON.stringify({ "deleteFlag": flagNumber });
+        
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        
+        return this._http.post('https://' + this.host + '/deleteFlag', flagToDelete, options)
+              .map((res: Response) => res.json())
+              .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    updateFlag(flagNumber: string, newFlagName: string){
+		
+        const flagToUpdate= JSON.stringify({ 'flag_id': flagNumber, 'flag_name': newFlagName });
+        console.log(flagToUpdate);
+
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers }); 
+		
+		return this._http.post('https://' + this.host + '/updateFlag', flagToUpdate, options)
+				.map((res: Response) => res.json())
+				.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+		 
+    }
 }

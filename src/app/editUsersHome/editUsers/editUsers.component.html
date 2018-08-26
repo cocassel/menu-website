@@ -10,24 +10,24 @@
 	
     <ng-container *ngIf="showForm==false">
 		
-		<label style="font-size: 180%; padding-bottom: 15px; width: 605px;">User Information</label>
+		<label style="font-size: 180%; padding-bottom: 15px; min-width: 600px;">User Information</label>
 		 
 		<table class="users" cellspacing="0px" style=" border-radius: 25px;">
         
 			<tr bgcolor="gray" style="font-weight: bold; vertical-align: middle; text-align: center; color:white; font-size: 110%; height: 25px;">
-				<td width="130"style="border-top-left-radius: 21px;">First Name</td>
-				<td width="130">Last Name</td>
-				<td width="130">Username</td>
-				<td width="100">Admin</td>
-				<td width="115" style="border-top-right-radius: 21px;">Delete User</td>
+				<td style="border-top-left-radius: 21px; min-width: 130px;">First Name</td>
+				<td style="min-width: 130px;">Last Name</td>
+				<td style="min-width: 130px;">Username</td>
+				<td style="min-width: 90px;">Admin</td>
+				<td style="border-top-right-radius: 21px; min-width: 120px">Delete User</td>
 			</tr>	
         
 			<ng-container *ngFor="let user of users">
 				
 				<tr>
-					<td style="vertical-align: middle; text-align: center;">{{user.first_name}}</td>
-					<td style="vertical-align: middle; text-align: center;">{{user.last_name}}</td>
-					<td style="vertical-align: middle; text-align: center;">{{user.username}}</td>
+					<td style="vertical-align: middle; text-align: center;"><div style="padding-left: 10px; padding-right:10px">{{user.first_name}}</div></td>
+					<td style="vertical-align: middle; text-align: center;"><div style="padding-left: 10px; padding-right:10px">{{user.last_name}}</div></td>
+					<td style="vertical-align: middle; text-align: center;"><div style="padding-left: 10px; padding-right:10px">{{user.username}}</div></td>
 					
 					<ng-container *ngIf="user.can_edit_users=='True'">
 						<td style="vertical-align: middle; text-align: center;">Yes</td>
@@ -36,10 +36,10 @@
 						<td style="vertical-align: middle; text-align: center;">No</td>
 					</ng-container>
 					<ng-container *ngIf="user.user_id!=loggedInUser">
-						<td style="vertical-align: middle; text-align: center;"><button (click)="onDelete(user.user_id)" type="button" class="btn btn-primary" id="deleteButton">&#10006;</button></td>
+						<td style="vertical-align: middle; text-align: center;"><button (click)="onDelete(user.user_id)" type="button" class="btn btn-danger" id="deleteButton"><i class="fa fa-trash"></i></button></td>
 					</ng-container>
 					<ng-container *ngIf="user.user_id==loggedInUser">
-							<td style="vertical-align: middle; text-align: center;"><button disabled type="button" class="btn btn-primary" id="deleteButtonDisabled">&#10006;</button></td>
+							<td style="vertical-align: middle; text-align: center;"><button disabled type="button" class="btn btn-primary" id="deleteButtonDisabled"><i class="fa fa-trash"></i></button></td>
 						</ng-container>
 					<ng-container *ngIf="user.user_id==loggedInUser">
 						<td style="vertical-align: middle; text-align: center;"></td>
@@ -98,7 +98,7 @@
 			</ng-container>
 			<ng-container *ngIf="userAdded==true">
 				
-					<p id="success">{{userAddedName}} has been added as a user!</p>
+					<p id="success">The user {{userAddedName}} has been added!</p>
 				
 			</ng-container>
 			

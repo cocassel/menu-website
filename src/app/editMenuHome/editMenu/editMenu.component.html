@@ -9,61 +9,61 @@
 
 <div id=menuBanner class="text-center">
 
-  <ng-container *ngIf="editOption=='unselected'">
-       
-    <form>
-      <label> What would you like to do?</label><br>
+    <h1>Menu</h1>
+    <h3 style="padding: 10px; font-size: 130%;">Filter Options:</h3><br>
+    <div style="text-align: center">
+		<ng-container *ngFor="let flag of flags">
+      <div id="flags" style="vertical-align: middle; display: inline-block; margin: 5px; margin-left: 25px; margin-right: 25px; ">
+          <div id="flagOption">
 
-      <button (click)="onSelection('addDish')" type="button" class="btn btn-primary">Add a dish to the menu</button><br>
-      <button (click)="onSelection('addCategory')" type="button" class="btn btn-primary">Add a dish category</button><br>
-      <button (click)="onSelection('addFilter')" type="button" class="btn btn-primary">Add a dietary filter</button><br>
-      <button (click)="onSelection('deleteDish')" type="button" class="btn btn-primary">Delete a dish from the menu</button><br>
-      <button (click)="onSelection('deleteCategory')" type="button" class="btn btn-primary">Delete a dish category</button><br>
-      <button (click)="onSelection('deleteFilter')" type="button" class="btn btn-primary">Delete a dietary filter</button>
-    </form>
-  </ng-container>
+        <ng-container *ngIf="!editFlag(flag.flag_id)">
+				  <div id="flagName">{{flag.flag_name}}:</div>
+        </ng-container>
+        <ng-container *ngIf="editFlag(flag.flag_id)">
+            <input value="{{flag.flag_name}}" id="flagEdit" maxlength="15" [(ngModel)]="flagsToEdit[flag.flag_id]">
+        </ng-container>
 
-  <ng-container *ngIf="editOption=='addDish'">
-      <form>
-          <label> Add a menu dish (eg. Hamburger)</label><br>
-          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
-      </form>
-  </ng-container>
+        <input type="checkbox" [checked]="flag.selected" (change)="flag.selected = !flag.selected" (change)="boxChecked()"/>
 
-  <ng-container *ngIf="editOption=='addCategory'">
-      <form>
-          <label> Add a dish category (eg. Appetizers)</label><br>
-          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton"> Go back</button>
-      </form>
-  </ng-container>
+      </div>
+      <ng-container *ngIf="!editFlag(flag.flag_id)">
+        <button (click)="onEditFlagButtonClicked(flag.flag_id, flag.flag_name)" type="button" class="btn btn-success" id="editFlagButton"><i class="fa fa-pencil"></i></button><button (click)="onDeleteFlag(flag.flag_id)" type="button" class="btn btn-danger" id="deleteFlagButton"><i class="fa fa-trash"></i></button><br>
+      </ng-container>
+      <ng-container *ngIf="editFlag(flag.flag_id)">
+          <button (click)="onEditFlagSubmitted(flag.flag_id)" type="button" class="btn btn-success" id="editFlagButton"><i class="fa fa-check"></i></button><button (click)="onDeleteFlag(flag.flag_id)" type="button" class="btn btn-danger" id="deleteFlagButton"><i class="fa fa-trash"></i></button><br>
+      </ng-container>
+     </div>
+    </ng-container>
+    <ng-container *ngIf="addFilterForm==false">
+        <button (click)="onAddFilterButtonClicked()" type="button" class="btn btn-success" id="addFilterButton"><i class="fa fa-plus"></i></button><br><br>
+    </ng-container>
+    <ng-container *ngIf="addFilterForm==true">
+      <form id="addFilter">
+        <button (click)="onAddFilterButtonMinimized()" type="button" class="btn btn-danger" id="addFilterButton"><i class="fa fa-close"></i></button><br>
+        <input type="text" maxlength="20" #filter><button (click)="onAddFilterSubmit(filter.value)" type="button" class="btn btn-success" id="addFilterSubmitButton">Submit</button></form>
 
-  <ng-container *ngIf="editOption=='addFilter'">
-      <form>
-          <label> Add a dietary filter (eg. Vegetarian)</label><br>
-          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
-      </form>
-  </ng-container>
+      <br><br>
+    </ng-container>
+    </div>
 
-  <ng-container *ngIf="editOption=='deleteDish'">
-      <form>
-          <label> Delete a menu dish</label><br>
-          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
-      </form>
-  </ng-container>
-
-  <ng-container *ngIf="editOption=='deleteCategory'">
-      <form>
-          <label> Delete a dish category </label><br>
-          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
-      </form>
-  </ng-container>
-
-  <ng-container *ngIf="editOption=='deleteFilter'">
-      <form>
-          <label> Delete a dietary filter </label><br>
-          <button (click)="onBack()" type="button" class="btn btn-primary" id="backButton">Go back</button>
-      </form>
-  </ng-container>
+		<ng-container *ngFor="let type of types">
+    <div id=mealType><h3 style="display: inline-block;">{{type.type_name}}</h3>
+   <button (click)="onEditType(type.type_id)" type="button" class="btn btn-success" id="editTypeButton"><i class="fa fa-pencil"></i></button><button (click)="onDeleteType(type.type_id)" type="button" class="btn btn-danger" id="deleteTypeButton"><i class="fa fa-trash"></i></button></div><br>
+      <ng-container *ngFor="let dish of dishes">
+				<ng-container *ngIf="type.type_id==dish.type_id">
+					<ng-container *ngIf="dish.visible=='true'">
+						<div id="menuLine">
+                {{dish.dish_name}} &nbsp;&nbsp; ${{dish.price}} 
+                <button (click)="onEditDish(dish.dish_id)" type="button" class="btn btn-success" id="editDishButton"><i class="fa fa-pencil"></i></button><button (click)="onDeleteDish(dish.dish_id)" type="button" class="btn btn-danger" id="deleteDishButton"><i class="fa fa-trash"></i></button>
+                <br>
+						</div>
+					</ng-container>
+				</ng-container>
+      </ng-container>
+      <button (click)="onAddDish()" type="button" class="btn btn-success" id="addDishButton"><i class="fa fa-plus"></i></button><br><br>
+      
+		</ng-container>
+		<br> 
 
 </div>
 

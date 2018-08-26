@@ -36,7 +36,7 @@ label{
     background: #4cb3b3;
 }
 li{
-    width: 750px;
+    min-width: 750px;
     padding: 5px;
 }
 table{
@@ -45,11 +45,11 @@ table{
     border-style: solid ;
     border-width: 3px;
     border-color: #2e2e2e;
-    box-shadow: 0 0 0 1px 
+    box-shadow: 0 0 0 1px;
 }
 .users td{
     border-collapse: inherit;
-    height: 45px;
+    height: 40px;
     padding: 0;
     border-width: 0px;
     vertical-align: middle;
@@ -73,7 +73,7 @@ select{
 }
 #addUser{
     height: 370px;
-    width: 350px;
+    width: 360px;
 }
 #left{
 	padding-top: 0px;
@@ -91,12 +91,10 @@ select{
 }
 #buttons{
     display: block;
-
 }
-#deleteButton.btn.btn-primary{
-   background-color: rgb(239, 10, 10);
-   border-color: rgb(239, 10, 10);
+#deleteButton.btn.btn-danger{
    color: white;
+   padding:0px;
 }
 button{
     color:white;
@@ -105,6 +103,7 @@ button{
     background-color:rgba(156, 139, 139, 0.651);
     border-color: rgba(156, 139, 139, 0.651);
     opacity: 35%;
+    padding:0px;
 }
 #main{
     display: block;
@@ -123,4 +122,7 @@ button{
 #success{
     color: white;
 }
-
+.fa-trash::before {
+	color: white;
+    padding:5px;
+}
