@@ -11,4 +11,4 @@ Angular web application hosted on GitHub Pages
 RESTful API hosted on Heroku  
 PostgreSQL database hosted on ElephantSQL  
 
-![Screenshot](User Sequence Plot Examples/-K7ua99n2s8m1LWebiDm.png)
+![picture](User Sequence Plot Examples/-K7ua99n2s8m1LWebiDm.png)
